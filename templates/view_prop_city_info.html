@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+{%block body%}
+
+<table>
+
+    <tr>
+        {%for head in heading%}
+        <th>
+            {{head}}
+        </th>
+        {%endfor%}
+    </tr>
+
+    {%for row in list%}
+    <tr>
+        {%for l in row%}
+        <td>
+            {{l}}
+        </td>
+        {%endfor%}
+    </tr>
+    {%endfor%}
+
+</table>
+
+
+<table>
+
+    <tr>
+        {%for head in heading1%}
+        <th>
+            {{head}}
+        </th>
+        {%endfor%}
+    </tr>
+
+    {%for row in list1%}
+    <tr>
+        {%for l in fow%}
+        <td>
+            {{l}}
+        </td>
+        {%endfor%}
+    </tr>
+    {%endfor%}
+
+</table>
+{%endblock%}

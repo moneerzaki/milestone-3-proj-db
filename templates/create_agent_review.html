@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%block body%}
+    <form action="/create_agent_review" method = "post">
+
+        <select name="user_reviewing">
+            {%for l in llist%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+
+        <select name="agent_reviewed">
+            {%for l in list%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        
+        <input name ="rating" type="number" maxlength="10">
+        <input name ="textual_review" type="text">
+        
+        <input type="submit" value = "submit">
+    </form>
+
+{%endblock%}

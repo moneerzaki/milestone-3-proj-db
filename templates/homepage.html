@@ -1,0 +1,142 @@
+
+{%extends "base.html"%}
+
+{%block body%}
+
+<div id="queries">
+    <form id="create_user" action="/create_user" method="post">
+        1. Click on the link to create a new user for the database. 
+        <input type="submit" value = "submit">
+    </form>
+    <form id="create_agent_review" action="/review1"  method="post">
+        2. Add a new user review on an agent.
+        <input type="submit" value = "submit">
+    </form>
+    <form id="view_agent_reviews" action="/view_agent_reviews"  method="post">
+
+        3. View existing reviews of a given agent 
+        <select name="agent">
+            {%for l in list%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <input type="submit" value = "submit">
+    </form>
+    <form id="view_broker_rating" action="/view_broker_rating"  method="post">
+        4. View aggregated rating of a brokerage company
+        <select name="broker">
+            {%for l in list_brokers1%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <input type="submit" value = "submit">
+    </form>
+    <form id="development_info" action="/view_dev_info"  method="post">
+        5. Show the location of a given development, along with the average price/sqm and the number of listings for each unit type.
+        <select name="development">
+            {%for l in list_developments%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <input type="submit" value = "submit">
+    </form>
+    <form id="city_properties_info" action="/view_prop_city_info"  method="post">
+        6. Show all the properties in a certain city, along with the average price / sqm for each unit type
+        <select name="city1">
+            {%for l in list_cities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <input type="submit" value = "submit">
+    </form>
+    <form id="city_properties_info2" action="/view_prop_city_info1"  method="post">
+        7. Show all the properties in a certain city 
+        <select name="city2">
+            {%for l in list_cities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+
+        in a given price range, min
+        <select name="min_price">
+            {%for l in list_prices%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        max, 
+        <select name="max_price">
+            {%for l in list_prices%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+
+        with a given set of amenities choose 5 amenities
+        <select name="amenity1">
+            {%for l in list_amenities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <select name="amenity2">
+            {%for l in list_amenities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <select name="amenity3">
+            {%for l in list_amenities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <select name="amenity4">
+            {%for l in list_amenities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <select name="amenity5">
+            {%for l in list_amenities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <input type="submit" value = "submit">
+    </form>
+    <form id="top_10_areas" action="/top_10_areas"  method="post" >
+        8. Show the top 10 areas in a given city by amount of inventory and price / sqm of a given unit type
+        <select name="city3">
+            {%for l in list_cities%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        <input type="submit" value = "submit">
+    </form>
+    <form id="top_brokers_info" action="/top_5_brokers"  method="post">
+        9. Show the top 5 brokerage companies by the amount of listings they have, along with their avg price / sqm, number of agents, and average listings per agent
+        <input type="submit" value = "submit">
+    </form>
+    <form id="agent_properties_listed" action="/q10_prop_info"  method="post">
+
+        10. Show all the properties listed by a specific agent (given their first 
+        <select name="agent_first_name">
+            {%for l in list_agents_first_name%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        and last name 
+        <select name="agent_middle_name">
+            {%for l in list_agents_middle_name%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+        and / or phone no)
+        <select name="agent_contact_number">
+            {%for l in list%}
+            <option value = "{{l[0]}}"> {{l[0]}} </option>
+            {%endfor%}
+        </select>
+
+        <input type="submit" value = "submit">
+    </form>
+    <form id="cash_discount_per_development" action="/q11"  method="post">
+        11. Estimate the cash discount per development based on the price differential between the cash price and the installment price for each unit type
+        <input type="submit" value = "submit">
+    </form>
+</div>
+{%endblock%}
